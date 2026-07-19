@@ -1,12 +1,12 @@
-### Hướng dẫn clone, setup môi trường và chạy project React
+# Hướng dẫn clone, setup môi trường, chạy project React và push code khi hoàn thành tasks
 
 ---
 
-# 1. Yêu cầu môi trường
+## 1. Yêu cầu môi trường
 
 Trước khi chạy project, cần cài đặt các phần mềm sau:
 
-## 1.1. Cài Node.js
+### 1.1. Cài Node.js
 
 Tải và cài đặt Node.js:
 
@@ -31,7 +31,7 @@ npm -v
 ```
 ---
 
-## 1.2. Cài Git
+### 1.2. Cài Git
 
 Git dùng để clone source code từ GitHub.
 
@@ -56,17 +56,9 @@ git --version
 git version 2.x.x
 ```
 
----
+## 2. Clone project từ GitHub
 
-## 1.3. Cài Visual Studio Code
-
-Nên dùng Visual Studio Code để mở và chỉnh sửa project.
-
----
-
-# 2. Clone project từ GitHub
-
-## Bước 1: Mở thư mục muốn lưu project
+### Bước 1: Mở thư mục muốn lưu project
 
 Hoặc tạo thư mục riêng:
 
@@ -76,7 +68,7 @@ cd ReactProjects
 ```
 ---
 
-## Bước 2: Clone project
+### Bước 2: Clone project
 
 Dùng lệnh:
 
@@ -92,7 +84,7 @@ cd tên-thư-mục
 
 ---
 
-# 3. Mở project bằng Visual Studio Code
+## 3. Mở project bằng Visual Studio Code
 
 Có thể mở project bằng lệnh:
 
@@ -101,7 +93,7 @@ code .
 ```
 ---
 
-# 4. Cài đặt thư viện cho project
+## 4. Cài đặt thư viện cho project
 
 Sau khi mở project, chạy lệnh sau trong terminal:
 
@@ -110,7 +102,7 @@ npm install
 ```
 ---
 
-# 5. Chạy project React
+## 5. Chạy project React
 
 Chạy lệnh:
 
@@ -130,33 +122,33 @@ http://localhost:5173
 ```
 ---
 
-# 6. Một số lệnh thường dùng
+## 6. Một số lệnh thường dùng
 
-## Chạy project
+### Chạy project
 
 ```bash
 npm run dev
 ```
 
-## Cài thư viện
+### Cài thư viện
 
 ```bash
 npm install
 ```
 
-## Cài thêm React Router
+### Cài thêm React Router
 
 ```bash
 npm install react-router-dom
 ```
 
-## Cài thư viện kéo thả task
+### Cài thư viện kéo thả task
 
 ```bash
 npm install @dnd-kit/core @dnd-kit/sortable
 ```
 
-## Dừng project
+### Dừng project
 
 Nhấn tổ hợp phím trong terminal:
 
@@ -169,5 +161,93 @@ Sau đó nhập:
 ```txt
 Y
 ```
+## 7. Push Code 
+## Lưu ý
+- Không commit trực tiếp lên nhánh `main`.
+- Mỗi task sử dụng một nhánh riêng.
+- Chỉ tạo Pull Request khi đã hoàn thành và kiểm tra chức năng.
+- Luôn cập nhật nhánh `main` mới nhất trước khi tạo nhánh mới.
+  
+### 7.1. Tạo nhánh cho task
+Mỗi thành viên phải tạo 1 nhánh riêng cho task của mình 
+
+Ví dụ:
+
+```bash
+git checkout -b function1
+```
+
+Hoặc:
+
+```bash
+git switch -c function1
+```
+
+Kiểm tra nhánh hiện tại:
+
+```bash
+git branch
+```
+---
+### 7.2. Thực hiện code 
+Hoàn thành chức năng được giao trên nhánh của mình.
+
+---
+### 7.3. Commit thay đổi 
+Thêm các file đã chỉnh sửa:
+
+```bash
+git add .
+```
+
+Commit:
+
+Ví dụ 
+```bash
+git commit -m "Implement function1"
+```
+### 7.4. Push lên GitHub
+
+Lần đầu push nhánh:
+
+```bash
+git push -u origin function1
+```
+
+Các lần sau chỉ cần:
+
+```bash
+git push
+```
+
+---
+
+### 7.5. Tạo Pull Request
+
+Sau khi push thành công:
+
+1. Truy cập repository trên GitHub.
+2. Chọn **Compare & Pull Request**.
+3. Chọn:
+   - **base:** `main`
+   - **compare:** `function1`
+4. Gửi Pull Request để review và merge.
+
+---
+
+### Quy ước đặt tên nhánh
+
+Đặt tên theo task được giao.
+
+Ví dụ:
+
+- `function1`
+- `login`
+- `register`
+- `profile`
+---
+
+
+
 
 
