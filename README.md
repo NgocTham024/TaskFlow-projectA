@@ -112,7 +112,7 @@ npm install
 
 # 5. Chạy project React
 
-Nếu project dùng Vite, chạy lệnh:
+Chạy lệnh:
 
 ```bash
 npm run dev
