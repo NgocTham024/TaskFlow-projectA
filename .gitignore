@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+src/components/boardHeader.jsx
+src/components/listColumn.jsx
+src/components/taskCards.jsx
+src/pages/boardPages.jsx
