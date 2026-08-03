@@ -3,12 +3,9 @@ import TaskCard from "./TaskCard";
 function TaskColumn({ title, tasks }) {
 
     return (
-
         <div className="column">
-
             <h2>{title}</h2>
             {
-
                 tasks
                     .filter((task) => {
                         if (title === "To Do") {
@@ -22,7 +19,6 @@ function TaskColumn({ title, tasks }) {
                         if (title === "Done") {
                             return task.status === "done";
                         }
-
                         return false;
                     })
                     .map((task) => (
@@ -31,13 +27,8 @@ function TaskColumn({ title, tasks }) {
                             task={task}
                         />
                     ))
-
             }
-
         </div>
-
     );
-
 }
-
 export default TaskColumn;

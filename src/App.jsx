@@ -30,74 +30,44 @@ function App() {
     }
 
     const newTask = {
-
       id: Date.now(),
-
       title: title,
-
       priority: priority,
-
       status: "todo"
-
     };
-
     setTasks([...tasks, newTask]);
-
     setTitle("");
-
     setPriority("High");
-
   };
   const newTask = {
-
     id: Date.now(),
-
     title,
-
     priority,
-
     status: "todo"
-
   }
   return (
     <div className="container">
       <Header />
-
       <TaskForm
-
         title={title}
-
         setTitle={setTitle}
-
         priority={priority}
-
         setPriority={setPriority}
-
         addTask={addTask}
-
       />
 
       <div className="board">
         <TaskColumn
-
           title="To Do"
-
           tasks={tasks}
-
         />
         <TaskColumn
-
           title="Doing"
-
           tasks={tasks}
-
         />
         <TaskColumn
-
           title="Done"
-
           tasks={tasks}
-
         />
       </div>
     </div>
