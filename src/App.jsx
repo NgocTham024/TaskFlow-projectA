@@ -20,8 +20,11 @@ function App() {
       status: "todo"
     }
   ]);
+
   const [title, setTitle] = useState("");
   const [priority, setPriority] = useState("High");
+  const [editingTask, setEditingTask] = useState(null);
+
   const addTask = () => {
 
     if (title.trim() === "") {
@@ -35,39 +38,82 @@ function App() {
       priority: priority,
       status: "todo"
     };
+
     setTasks([...tasks, newTask]);
     setTitle("");
     setPriority("High");
   };
+
+  const handleEdit = (task) => {
+
+    setEditingTask(task);
+    setTitle(task.title);
+    setPriority(task.priority);
+
+  };
+
+  const updateTask = () => {
+
+    if (title.trim() === "") {
+      alert("Please enter task name");
+      return;
+    }
+
+    const updatedTasks = tasks.map((task) =>
+      task.id === editingTask.id
+        ? {
+            ...task,
+            title: title,
+            priority: priority
+          }
+        : task
+    );
+
+    setTasks(updatedTasks);
+    setEditingTask(null);
+    setTitle("");
+    setPriority("High");
+
+  };
+
   const newTask = {
     id: Date.now(),
     title,
     priority,
     status: "todo"
   }
+
   return (
     <div className="container">
       <Header />
+
       <TaskForm
         title={title}
         setTitle={setTitle}
         priority={priority}
         setPriority={setPriority}
         addTask={addTask}
+        updateTask={updateTask}
+        editingTask={editingTask}
       />
 
       <div className="board">
         <TaskColumn
           title="To Do"
           tasks={tasks}
+          onEdit={handleEdit}
         />
+
         <TaskColumn
           title="Doing"
           tasks={tasks}
+          onEdit={handleEdit}
         />
+
         <TaskColumn
           title="Done"
           tasks={tasks}
+          onEdit={handleEdit}
         />
       </div>
     </div>

@@ -1,6 +1,6 @@
 import TaskCard from "./TaskCard";
 
-function TaskColumn({ title, tasks }) {
+function TaskColumn({ title, tasks, onEdit }) {
 
     return (
         <div className="column">
@@ -25,6 +25,7 @@ function TaskColumn({ title, tasks }) {
                         <TaskCard
                             key={task.id}
                             task={task}
+                            onEdit={onEdit}
                         />
                     ))
             }
