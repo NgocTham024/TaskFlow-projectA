@@ -1,6 +1,6 @@
 import TaskCard from "./TaskCard";
 
-function TaskColumn({ title, tasks }) {
+function TaskColumn({ title, tasks, onDelete }) {
 
     return (
         <div className="column">
@@ -22,10 +22,7 @@ function TaskColumn({ title, tasks }) {
                         return false;
                     })
                     .map((task) => (
-                        <TaskCard
-                            key={task.id}
-                            task={task}
-                        />
+                        <TaskCard key={task.id} task={task} onDelete={onDelete} />
                     ))
             }
         </div>

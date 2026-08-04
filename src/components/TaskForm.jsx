@@ -23,7 +23,7 @@ function TaskForm({
         <option>Low</option>
       </select>
 
-      <button onClick={addTask}>
+      <button className="btn btn-primary btn-sm my-1" onClick={addTask}>
         Add Task
       </button>
     </div>
