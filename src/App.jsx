@@ -38,7 +38,6 @@ function App() {
         setPriority("High");
     };
 
-    // Sự kiện delete: khai báo TRƯỚC return, để JSX bên dưới gọi được
     const deleteTask = (id) => {
         setTasks((currentTasks) =>
             currentTasks.filter((task) => task.id !== id)
