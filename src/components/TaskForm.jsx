@@ -4,6 +4,8 @@ function TaskForm({
   priority,
   setPriority,
   addTask,
+  updateTask,
+  editingTask,
 }) {
   return (
     <div className="task-form">
@@ -23,8 +25,11 @@ function TaskForm({
         <option>Low</option>
       </select>
 
-      <button className="btn btn-primary btn-sm my-1" onClick={addTask}>
-        Add Task
+      <button
+          className="btn btn-primary btn-sm my-1"
+          onClick={editingTask ? updateTask : addTask}
+      >
+          {editingTask ? "Save" : "Add Task"}
       </button>
     </div>
   );
