@@ -76,13 +76,6 @@ function App() {
 
   };
 
-  const newTask = {
-    id: Date.now(),
-    title,
-    priority,
-    status: "todo"
-  }
-
   return (
     <div className="container">
       <Header />
