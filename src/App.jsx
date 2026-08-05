@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "./components/Header";
 import TaskForm from "./components/TaskForm";
 import TaskColumn from "./components/TaskColumn";
+import "./App.css";
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -45,6 +46,29 @@ function App() {
     priority,
     status: "todo"
   }
+
+  const moveTask = (id) => {
+    const updatedTasks = tasks.map((task) => {
+      if (task.id !== id) return task;
+
+      let nextStatus;
+
+      if (task.status === "todo") {
+        nextStatus = "doing";
+      } else if (task.status === "doing") {
+        nextStatus = "done";
+      } else {
+        nextStatus = "todo";
+      }
+
+      return {
+        ...task,
+        status: nextStatus,
+      };
+    });
+
+    setTasks(updatedTasks);
+  };
   return (
     <div className="container">
       <Header />
@@ -60,14 +84,17 @@ function App() {
         <TaskColumn
           title="To Do"
           tasks={tasks}
+          moveTask={moveTask}
         />
         <TaskColumn
           title="Doing"
           tasks={tasks}
+          moveTask={moveTask}
         />
         <TaskColumn
           title="Done"
           tasks={tasks}
+          moveTask={moveTask}
         />
       </div>
     </div>

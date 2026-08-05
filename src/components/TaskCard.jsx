@@ -1,4 +1,4 @@
-function TaskCard({ task }) {
+function TaskCard({ task, moveTask }) {
 
     return (
 
@@ -9,7 +9,9 @@ function TaskCard({ task }) {
             <div className="buttons">
                 <button>Edit</button>
                 <button>Delete</button>
-                <button>Move</button>
+                <button onClick={() => moveTask(task.id)}>
+                    Move
+                </button>
             </div>
         </div>
     );
