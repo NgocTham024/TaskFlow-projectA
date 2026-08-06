@@ -3,11 +3,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     padding: 0 24px;
-
     background: white;
-
     border-bottom: 1px solid #e5e7eb;
 }
 
@@ -37,21 +34,17 @@
     background: #2563eb;
     color: white;
     border-radius: 8px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-weight: bold;
 }
 
 .project-select {
     height: 40px;
     padding: 0 12px;
-
     border: 1px solid #ddd;
     border-radius: 8px;
-
     cursor: pointer;
 }
 
@@ -59,36 +52,27 @@
 
 .header-center {
     flex: 1;
-
     display: flex;
     justify-content: center;
-
     padding: 0 30px;
 }
 
 .search-box {
     width: 500px;
-
     display: flex;
     align-items: center;
     gap: 10px;
-
     background: #fafafa;
-
     border: 1px solid #ddd;
     border-radius: 10px;
-
     padding: 10px 15px;
-
     transition: .2s;
 }
 
 .search-box input {
     border: none;
     outline: none;
-
     width: 100%;
-
     background: transparent;
 }
 
@@ -108,16 +92,11 @@
 .icon-btn {
     width: 40px;
     height: 40px;
-
     border: none;
     background: white;
-
     border-radius: 50%;
-
     cursor: pointer;
-
     transition: .25s;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -131,19 +110,13 @@
 .avatar {
     width: 42px;
     height: 42px;
-
     border-radius: 50%;
-
     background: #fde2e2;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-weight: bold;
-
     cursor: pointer;
-
     transition: .2s;
 }
 

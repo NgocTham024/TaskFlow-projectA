@@ -1,7 +1,5 @@
 import "./Header.css";
-
 import { FiSearch } from "react-icons/fi";
-
 import { headerData } from "../../data/headerData";
 import { actionData } from "../../data/actionData";
 

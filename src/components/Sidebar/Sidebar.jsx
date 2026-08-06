@@ -8,15 +8,10 @@ import UserCard from "./UserCard";
 function Sidebar() {
     return (
         <aside className="sidebar">
-
             <Menu />
-
             <ProjectList />
-
             <ProgressCard />
-
             <UserCard />
-
         </aside>
     );
 }
