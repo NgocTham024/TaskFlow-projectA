@@ -1,0 +1,30 @@
+.menu-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.menu-item:hover{
+
+    background:#f3f4f6;
+    transform:translateX(4px);
+
+}
+
+.menu-item svg{
+
+    font-size:20px;
+
+}
