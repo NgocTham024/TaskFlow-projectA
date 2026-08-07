@@ -9,7 +9,7 @@ const TaskCard = ({
   onMove, 
   onDelete 
 }) => {
-  // Lực ép component tự vẽ lại
+  // Chuyển trạng thái công việc
   const [, setTick] = useState(0);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const TaskCard = ({
     return 'label-amber';
   };
 
-  // XỬ LÝ NÚT ĐỔI: Chuyển status + Phát tín hiệu nhảy cột tức thì
+  //  nhảy cột 
   const handleMoveClick = (e) => {
     e.stopPropagation();
 
@@ -41,12 +41,12 @@ const TaskCard = ({
       task.status = nextStatusMap[task.status] || 'doing';
     }
 
-    // 2. Báo cho App.jsx (nếu có)
+    // 2. Báo cho App.jsx 
     if (typeof onMove === 'function') {
       onMove(task?.id !== undefined ? task.id : task);
     }
 
-    // 3. Ép giao diện vẽ lại ngay lập tức
+    // 3. giao diện vẽ lại
     window.dispatchEvent(new Event('tf-force-refresh'));
   };
 
@@ -55,7 +55,7 @@ const TaskCard = ({
       {/* 1. TÊN TASK */}
       <h4 className="tf-task-title">{displayTitle}</h4>
 
-      {/* 2. LABEL BÊN DƯỚI TÊN */}
+      {/* 2. LABEL */}
       <div className="tf-task-header">
         <span className={`tf-task-label ${getLabelClass(displayPriority)}`}>
           {displayPriority === 'High' ? 'Cao' : displayPriority === 'Low' ? 'Thấp' : 'Trung bình'}
