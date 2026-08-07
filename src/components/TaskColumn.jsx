@@ -1,4 +1,5 @@
-import TaskCard from "./TaskCard";
+import React from "react";
+import TaskCard from "./Task Card/TaskCard";
 
 function TaskColumn({ title, tasks, moveTask, onDelete, onEdit }) {
     return (
