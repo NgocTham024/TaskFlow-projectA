@@ -1,0 +1,26 @@
+/* Nút add button */
+.btn-floating-add {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn-floating-add:hover {
+  transform: scale(1.1);
+}
+
+/* bo góc cảd */
+.custom-card {
+  border-radius: 12px;
+  overflow: hidden;
+}
