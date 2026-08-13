@@ -47,11 +47,9 @@ export default function TaskCard({
 
   return (
     <div className="task-card">
-      {/* 1. Tên Task & Menu nút bấm (Có mũi tên chuyển cột) */}
       <div className="task-card-header">
         <h4 className="task-title">{task.title}</h4>
         <div className="task-menu">
-          {/* Nút lùi cột */}
           {task.status !== 'To Do' && (
             <button
               className="btn-icon"
@@ -61,7 +59,6 @@ export default function TaskCard({
               ⬅️
             </button>
           )}
-          {/* Nút tiến cột */}
           {task.status !== 'Completed' && (
             <button
               className="btn-icon"
@@ -76,7 +73,6 @@ export default function TaskCard({
         </div>
       </div>
 
-      {/* 2. Label */}
       <div className="task-label-container">
         <span
           className="task-label-badge"
@@ -86,7 +82,6 @@ export default function TaskCard({
         </span>
       </div>
 
-      {/* 3. Footer (Assignee | Deadline | Comment) */}
       <div className="task-card-footer">
         <div className="footer-item" title={task.assignee || 'Người phụ trách'}>
           <svg className="icon" viewBox="0 0 24 24" fill="currentColor">
