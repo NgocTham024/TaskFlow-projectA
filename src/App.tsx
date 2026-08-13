@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import TaskSection from './components/TaskSection'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -115,6 +116,19 @@ function App() {
 
       <div className="ticks"></div>
       <section id="spacer"></section>
+
+      {/* Khối hiển thị TaskSection của bạn */}
+      <div style={{ 
+        width: '100%', 
+        marginTop: '40px', 
+        padding: '20px', 
+        background: '#ffffff', 
+        color: '#000000',
+        borderRadius: '8px',
+        boxSizing: 'border-box'
+      }}>
+        <TaskSection />
+      </div>
     </>
   )
 }
