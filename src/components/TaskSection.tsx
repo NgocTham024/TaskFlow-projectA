@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import TaskCard from './TaskCard';
-import type { Task } from './TaskCard';
+import TaskCard, { type Task } from './TaskCard';
 import AddTask from './AddTask';
 import EditTask from './EditTask';
 import DeleteTask from './DeleteTask';
@@ -8,153 +7,68 @@ import './TaskSection.css';
 
 export default function TaskSection() {
   const [tasks, setTasks] = useState<Task[]>([
-    {
-      id: 1,
-      title: 'Nghiên cứu người dùng',
-      label: 'Nghiên cứu',
-      deadline: '10/5',
-      commentsCount: 3,
-      priority: 'High',
-      status: 'To Do',
-    },
-    {
-      id: 2,
-      title: 'Nghiên cứu thị trường',
-      label: 'Thiết kế',
-      deadline: '10/9',
-      commentsCount: 1,
-      priority: 'Medium',
-      status: 'To Do',
-    },
-    {
-      id: 3,
-      title: 'Thiết kế giao diện chính',
-      label: 'Thiết kế',
-      deadline: '7/4',
-      commentsCount: 3,
-      priority: 'High',
-      status: 'In Progress',
-    },
-    {
-      id: 4,
-      title: 'Xây dựng trang chủ',
-      label: 'Phát triển',
-      deadline: '10/4',
-      commentsCount: 1,
-      priority: 'Medium',
-      status: 'In Progress',
-    },
+    { id: 1, title: 'Design UI', priority: 'High', status: 'To Do', assignee: 'Nguyễn Văn A', deadline: '20/08/2026' },
+    { id: 2, title: 'Create Login API', priority: 'Medium', status: 'In Progress', assignee: 'Trần Thị B', deadline: '22/08/2026' },
   ]);
 
-  const [isAddOpen, setIsAddOpen] = useState(false);
-  const [editingTask, setEditingTask] = useState<Task | null>(null);
-  const [deletingTaskId, setDeletingTaskId] = useState<number | null>(null);
+  const [showAdd, setShowAdd] = useState(false);
+  const [editTask, setEditTask] = useState<Task | null>(null);
+  const [deleteId, setDeleteId] = useState<number | null>(null);
 
-  const priorityWeight = { High: 3, Medium: 2, Low: 1 };
-
-  const handleAddTask = (newTask: { title: string; status: string }) => {
-    const createdTask: Task = {
-      id: Date.now(),
-      title: newTask.title || 'Công việc mới',
-      label: 'Nghiên cứu',
-      deadline: '12/12',
-      commentsCount: 0,
-      priority: 'Medium',
-      status: newTask.status || 'To Do',
-    };
-    setTasks((prevTasks) => [...prevTasks, createdTask]);
-  };
-
-  const handleUpdateDeadline = (id: number, newDeadline: string) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((t) => (t.id === id ? { ...t, deadline: newDeadline } : t))
-    );
-  };
-
-  const handleUpdateComments = (id: number, newCount: number) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((t) => (t.id === id ? { ...t, commentsCount: newCount } : t))
-    );
-  };
-
-  // 🟢 Hàm xử lý dịch chuyển cột
-  const handleMoveTask = (id: number, newStatus: string) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((t) => (t.id === id ? { ...t, status: newStatus } : t))
-    );
-  };
-
-  const columns = [
-    { title: 'Chưa bắt đầu', status: 'To Do', dotColor: '#a0a0a0' },
-    { title: 'Đang làm', status: 'In Progress', dotColor: '#fadb14' },
-    { title: 'Đã hoàn thành', status: 'Completed', dotColor: '#52c41a' },
-  ];
+  const columns = ['To Do', 'In Progress', 'Completed'];
 
   return (
     <div className="task-section">
       <div className="kanban-board">
         {columns.map((col) => {
-          const colTasks = tasks
-            .filter((t) => t.status === col.status)
-            .sort((a, b) => priorityWeight[b.priority] - priorityWeight[a.priority]);
-
+          const colTasks = tasks.filter((t) => t.status === col);
           return (
-            <div className="kanban-column" key={col.status}>
+            <div key={col} className="kanban-column">
               <div className="column-header">
-                <div className="column-title-group">
-                  <span className="status-dot" style={{ backgroundColor: col.dotColor }}></span>
-                  <h3>{col.title}</h3>
-                  <span className="task-count">{colTasks.length}</span>
-                </div>
-                <button className="btn-add-icon" onClick={() => setIsAddOpen(true)}>+</button>
+                <h3>{col}</h3>
+                <span className="task-count">{colTasks.length}</span>
               </div>
 
               <div className="column-body">
-                {colTasks.map((task) => (
+                {colTasks.map((t) => (
                   <TaskCard
-                    key={task.id}
-                    task={task}
-                    onEdit={() => setEditingTask(task)}
-                    onDelete={() => setDeletingTaskId(task.id)}
-                    onUpdateDeadline={(d) => handleUpdateDeadline(task.id, d)}
-                    onUpdateComments={(c) => handleUpdateComments(task.id, c)}
-                    onMove={(newStatus) => handleMoveTask(task.id, newStatus)}
+                    key={t.id}
+                    task={t}
+                    onEdit={() => setEditTask(t)}
+                    onDelete={() => setDeleteId(t.id)}
+                    onUpdateDeadline={(dl) => setTasks(tasks.map((x) => (x.id === t.id ? { ...x, deadline: dl } : x)))}
+                    onMove={(st) => setTasks(tasks.map((x) => (x.id === t.id ? { ...x, status: st } : x)))}
                   />
                 ))}
               </div>
 
-              <button className="btn-add-card" onClick={() => setIsAddOpen(true)}>
-                + Thêm thẻ
+              <button className="btn-add-card" onClick={() => setShowAdd(true)}>
+                + Thêm task
               </button>
             </div>
           );
         })}
       </div>
 
-      {isAddOpen && (
-        <AddTask onClose={() => setIsAddOpen(false)} onAdd={handleAddTask} />
-      )}
-
-      {editingTask && (
-        <EditTask
-          task={editingTask}
-          onClose={() => setEditingTask(null)}
-          onSave={(updated) => {
-            setTasks((prevTasks) =>
-              prevTasks.map((t) => (t.id === updated.id ? { ...t, ...updated } : t))
-            );
-            setEditingTask(null);
-          }}
+      {showAdd && (
+        <AddTask
+          onClose={() => setShowAdd(false)}
+          onAdd={(newTask) => setTasks([...tasks, { id: Date.now(), priority: 'Medium', ...newTask }])}
         />
       )}
 
-      {deletingTaskId && (
+      {editTask && (
+        <EditTask
+          task={editTask}
+          onClose={() => setEditTask(null)}
+          onSave={(updated) => setTasks(tasks.map((x) => (x.id === updated.id ? updated : x)))}
+        />
+      )}
+
+      {deleteId && (
         <DeleteTask
-          onClose={() => setDeletingTaskId(null)}
-          onConfirm={() => {
-            setTasks((prevTasks) => prevTasks.filter((t) => t.id !== deletingTaskId));
-            setDeletingTaskId(null);
-          }}
+          onClose={() => setDeleteId(null)}
+          onConfirm={() => { setTasks(tasks.filter((x) => x.id !== deleteId)); setDeleteId(null); }}
         />
       )}
     </div>

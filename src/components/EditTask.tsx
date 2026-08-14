@@ -1,10 +1,5 @@
 import { useState } from 'react';
-
-interface Task {
-  id: number;
-  title: string;
-  status: string;
-}
+import type { Task } from './TaskCard';
 
 interface EditTaskProps {
   task: Task;
@@ -16,22 +11,16 @@ export default function EditTask({ task, onClose, onSave }: EditTaskProps) {
   const [title, setTitle] = useState(task.title);
   const [status, setStatus] = useState(task.status);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSave({ ...task, title, status });
-    onClose();
-  };
-
   return (
     <div className="modal-overlay">
       <div className="modal-content">
         <h3>Chỉnh sửa công việc</h3>
-        <form onSubmit={handleSubmit}>
-          <input 
-            type="text" 
-            value={title} 
+        <form onSubmit={(e) => { e.preventDefault(); onSave({ ...task, title, status }); onClose(); }}>
+          <input
+            type="text"
+            value={title}
             onChange={(e) => setTitle(e.target.value)}
-            required 
+            required
           />
           <select value={status} onChange={(e) => setStatus(e.target.value)}>
             <option value="To Do">To Do</option>
