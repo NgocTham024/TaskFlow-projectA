@@ -39,18 +39,21 @@ function App() {
     {
       id: 1,
       title: "Design UI",
+      description: "",
       priority: "High",
       status: "todo",
     },
     {
       id: 2,
       title: "Create Login API",
+      description: "",
       priority: "Medium",
       status: "todo",
     },
     {
       id: 3,
       title: "Home",
+      description: "",
       priority: "High",
       status: "todo",
     },
@@ -78,6 +81,7 @@ function App() {
     const newTask: Task = {
       id: Date.now(),
       title: title.trim(),
+      description: "",
       priority,
       status: "todo",
     };
