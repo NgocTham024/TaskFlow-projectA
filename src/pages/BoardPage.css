@@ -1,7 +1,4 @@
-/* =========================
-   BOARD PAGE LAYOUT
-   ========================= */
-
+/* Board page layout*/
 .board-page {
   width: 100%;
   min-height: 100vh;
@@ -13,27 +10,19 @@
   width: calc(100% - 258px);
   min-height: 100vh;
   min-width: 0;
-
   padding: 16px 32px 40px;
-
   box-sizing: border-box;
   overflow-x: hidden;
 }
 
-/* =========================
-   HEADER
-   ========================= */
-
+/* Header */
 .board-page-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   width: 100%;
   min-height: 58px;
-
   margin-bottom: 32px;
-
   gap: 20px;
 }
 
@@ -43,10 +32,8 @@
 
 .board-page-header-left h1 {
   margin: 0;
-
   font-size: 28px;
   font-weight: 700;
-
   color: #1e293b;
 }
 
@@ -57,58 +44,39 @@
   font-size: 14px;
 }
 
-/* =========================
-   HEADER RIGHT
-   ========================= */
+/* Header right */
 
 .board-page-header-right {
   display: flex;
   align-items: center;
-
   gap: 12px;
-
   flex-shrink: 0;
 }
 
-/* =========================
-   SEARCH BAR
-   ========================= */
-
+/* Search bar */
 .board-page-header-right .search-bar {
   position: relative;
-
   width: 260px;
   height: 42px;
-
   margin: 0;
-
   display: flex;
   align-items: center;
-
   flex-shrink: 0;
 }
 
 /* Input */
-
 .board-page-header-right .search-bar input {
   width: 100%;
   height: 42px;
-
   box-sizing: border-box;
-
   padding: 0 40px 0 40px;
-
   border: 1px solid #dbe3ee;
   border-radius: 10px;
-
   background: #f8fafc;
   color: #1e293b;
-
   outline: none;
-
   font-family: inherit;
   font-size: 14px;
-
   transition:
     border-color 0.2s ease,
     background-color 0.2s ease,
@@ -116,7 +84,6 @@
 }
 
 /* Placeholder */
-
 .board-page-header-right .search-bar input::placeholder {
   color: #94a3b8;
 }
@@ -133,67 +100,44 @@
 .board-page-header-right .search-bar input:focus {
   background: #ffffff;
   border-color: #2563eb;
-
-  box-shadow:
-    0 0 0 3px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 /* Search icon */
-
 .board-page-header-right .search-bar .search-icon {
   position: absolute;
-
   left: 14px;
   top: 50%;
-
   transform: translateY(-50%);
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 18px;
   height: 18px;
-
   color: #64748b;
-
   font-size: 15px;
-
   pointer-events: none;
-
   z-index: 2;
 }
 
 /* Clear search */
-
 .board-page-header-right .search-bar .clear-search {
   position: absolute;
-
   right: 8px;
   top: 50%;
-
   transform: translateY(-50%);
-
   width: 26px;
   height: 26px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 0;
-
   border: none;
   border-radius: 50%;
-
   background: transparent;
-
   color: #94a3b8;
-
   font-size: 16px;
-
   cursor: pointer;
-
   transition:
     background-color 0.15s ease,
     color 0.15s ease;
@@ -204,34 +148,22 @@
   color: #475569;
 }
 
-/* =========================
-   ADD BUTTON
-   ========================= */
-
+/* Add button */
 .board-page-add-btn {
   height: 40px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   gap: 7px;
-
   padding: 0 18px;
-
   border: none;
   border-radius: 8px;
-
   background: #2563eb;
   color: white;
-
   font-size: 14px;
   font-weight: 600;
-
   cursor: pointer;
-
   box-shadow: 0 3px 8px rgba(37, 99, 235, 0.22);
-
   transition:
     background 0.18s ease,
     transform 0.15s ease,
@@ -241,7 +173,6 @@
 .board-page-add-btn:hover {
   background: #1d4ed8;
   transform: translateY(-1px);
-
   box-shadow: 0 5px 12px rgba(37, 99, 235, 0.28);
 }
 
@@ -249,38 +180,26 @@
   transform: translateY(0);
 }
 
-/* =========================
-   AVATAR
-   ========================= */
-
+/* Avatar */
 .board-page-avatar {
   width: 40px;
   height: 40px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   flex-shrink: 0;
-
   border-radius: 50%;
-
   background: linear-gradient(
     135deg,
     #2563eb,
     #7c3aed
   );
-
   color: white;
-
   font-size: 12px;
   font-weight: 700;
 }
 
-/* =========================
-   MAIN BOARD
-   ========================= */
-
+/* Main board */
 .board-page-main {
   width: 100%;
   min-width: 0;
@@ -291,9 +210,7 @@
   min-width: 0;
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+/* Responsive */
 
 @media (max-width: 1100px) {
   .board-page-content {

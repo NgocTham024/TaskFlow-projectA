@@ -47,10 +47,7 @@ export default function Board({
   externalShowAdd,
   onCloseExternalAdd,
 }: BoardProps = {}) {
-  // =========================
-  // DND SENSOR
-  // =========================
-
+  // DND sensor
   const sensors = useSensors(
     useSensor(PointerSensor, {
       activationConstraint: {
@@ -59,10 +56,7 @@ export default function Board({
     })
   );
 
-  // =========================
-  // TASKS
-  // =========================
-
+  // Tasks
   const [tasks, setTasks] = useState<Task[]>([
     {
       id: 1,
@@ -91,10 +85,7 @@ export default function Board({
   const [activeTask, setActiveTask] =
     useState<Task | null>(null);
 
-  // =========================
-  // ADD TASK
-  // =========================
-
+  // Add task
   const [showAddModal, setShowAddModal] =
     useState(false);
 
@@ -106,10 +97,7 @@ export default function Board({
     onCloseExternalAdd?.();
   };
 
-  // =========================
-  // DRAG START
-  // =========================
-
+  // Drag start
   const handleDragStart = (
     event: DragStartEvent
   ) => {
@@ -124,10 +112,7 @@ export default function Board({
     }
   };
 
-  // =========================
-  // DRAG END
-  // =========================
-
+  // Drag end
   const handleDragEnd = (
     event: DragEndEvent
   ) => {
@@ -155,19 +140,13 @@ export default function Board({
       const activeTask =
         currentTasks[activeIndex];
 
-      // =====================================
-      // TÌM TASK ĐÍCH
-      // =====================================
-
+      // Tìm task đích
       const overTask =
         currentTasks.find(
           (task) => task.id === overId
         );
 
-      // =====================================
-      // THẢ VÀO COLUMN TRỐNG
-      // =====================================
-
+      // Thả vào column trống
       if (!overTask) {
         const newStatus =
           over.id as Task["status"];
@@ -190,18 +169,12 @@ export default function Board({
         );
       }
 
-      // =====================================
-      // THẢ LÊN CHÍNH NÓ
-      // =====================================
-
+      // Thả lên chính nó
       if (activeId === overTask.id) {
         return currentTasks;
       }
 
-      // =====================================
-      // XÁC ĐỊNH TRÊN / DƯỚI TASK ĐÍCH
-      // =====================================
-
+      // Xác định trên/ dưới task
       const activeRect =
         active.rect.current.translated;
 
@@ -226,19 +199,12 @@ export default function Board({
       const insertAfter =
         activeCenter > overCenter;
 
-      // =====================================
-      // XÓA TASK KHỎI VỊ TRÍ CŨ
-      // =====================================
-
+      // Xóa task khỏi vị trí cũ
       const newTasks =
         [...currentTasks];
-
       newTasks.splice(activeIndex, 1);
 
-      // =====================================
-      // TÌM LẠI VỊ TRÍ TASK ĐÍCH
-      // =====================================
-
+      // Tìm lại vị trí task đích
       const newOverIndex =
         newTasks.findIndex(
           (task) => task.id === overTask.id
@@ -248,19 +214,13 @@ export default function Board({
         return currentTasks;
       }
 
-      // =====================================
-      // ĐỔI STATUS THEO COLUMN MỚI
-      // =====================================
-
+      // Đổi status theo column mới
       const movedTask: Task = {
         ...activeTask,
         status: overTask.status,
       };
 
-      // =====================================
-      // INSERT BEFORE / AFTER
-      // =====================================
-
+      // Insert before/after
       const insertIndex = insertAfter
         ? newOverIndex + 1
         : newOverIndex;
@@ -275,18 +235,12 @@ export default function Board({
     });
   };
 
-  // =========================
-  // DRAG CANCEL
-  // =========================
-
+  // Drag cancel
   const handleDragCancel = () => {
     setActiveTask(null);
   };
 
-  // =========================
-  // ADD TASK
-  // =========================
-
+  // Add task
   const handleAddTask = (
     newTask: Task
   ) => {
@@ -296,10 +250,7 @@ export default function Board({
     ]);
   };
 
-  // =========================
-  // EDIT TASK
-  // =========================
-
+  // Edit task
   const handleEditTask = (
     updatedTask: Task
   ) => {
@@ -312,10 +263,7 @@ export default function Board({
     );
   };
 
-  // =========================
-  // DELETE TASK
-  // =========================
-
+  // Delete task
   const handleDeleteTask = (
     taskId: number
   ) => {
@@ -326,10 +274,7 @@ export default function Board({
     );
   };
 
-  // =========================
-  // SEARCH
-  // =========================
-
+  // Search
   const normalizedSearch =
     searchQuery.trim().toLowerCase();
 
@@ -344,10 +289,7 @@ export default function Board({
         )
       : tasks;
 
-  // =========================
   // UI
-  // =========================
-
   return (
     <div className="board-container">
       <DndContext
