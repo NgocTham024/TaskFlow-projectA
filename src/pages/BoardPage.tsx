@@ -2,7 +2,7 @@ import { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import SearchBar from "../components/SearchBar";
 import Board from "../components/board/Board";
-import "./TodoDemo.css";
+import "./BoardPage.css";
 
 export default function BoardPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -39,13 +39,11 @@ export default function BoardPage() {
         </header>
 
         <main className="board-page-main">
-          <div className="todo-demo">
-            <Board
-              searchQuery={searchQuery}
-              externalShowAdd={showAddTask}
-              onCloseExternalAdd={() => setShowAddTask(false)}
-            />
-          </div>
+          <Board
+            searchQuery={searchQuery}
+            externalShowAdd={showAddTask}
+            onCloseExternalAdd={() => setShowAddTask(false)}
+          />
         </main>
       </div>
     </div>
