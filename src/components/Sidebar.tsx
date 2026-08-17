@@ -100,9 +100,7 @@ export default function Sidebar({
         collapsed ? "sidebar--collapsed" : ""
       }`}
     >
-      {/* =========================
-          LOGO
-          ========================= */}
+      {/* Logo */}
 
       <div className="sidebar-logo">
         <div className="sidebar-logo-icon">
@@ -116,9 +114,7 @@ export default function Sidebar({
         )}
       </div>
 
-      {/* =========================
-          TOGGLE BUTTON
-          ========================= */}
+      {/* Toggle button */}
 
       <button
         className="sidebar-toggle"
@@ -131,9 +127,7 @@ export default function Sidebar({
 
       {!collapsed && (
         <>
-          {/* =========================
-              NAVIGATION
-              ========================= */}
+          {/* Navigation */}
 
           <nav className="sidebar-nav">
             {NAV_ITEMS.map((item) => (
@@ -158,9 +152,7 @@ export default function Sidebar({
             ))}
           </nav>
 
-          {/* =========================
-              PROJECTS
-              ========================= */}
+          {/* Projects */}
 
           <div className="sidebar-projects">
             <div className="sidebar-section-title">
@@ -206,9 +198,7 @@ export default function Sidebar({
             </div>
           </div>
 
-          {/* =========================
-              PROGRESS
-              ========================= */}
+          {/* Progress */}
 
           <div className="sidebar-progress">
             <h3>Tiến độ tổng thể</h3>
@@ -261,9 +251,7 @@ export default function Sidebar({
         </>
       )}
 
-      {/* =========================
-          USER
-          ========================= */}
+      {/* User */}
 
       <div className="sidebar-footer">
         <div className="sidebar-user">

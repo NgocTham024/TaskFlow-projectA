@@ -1,7 +1,4 @@
-/* =========================
-   SIDEBAR VARIABLES
-   ========================= */
-
+/* Sidebar variables */
 :root {
   --sidebar-width: 260px;
   --sidebar-collapsed-width: 68px;
@@ -17,38 +14,24 @@
 
   --sidebar-hover-bg: #f8fafc;
 
-  --sidebar-transition:
-    0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  --sidebar-transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
-/* =========================
-   SIDEBAR
-   ========================= */
+/* Sidebar */
 
 .sidebar {
   position: fixed;
-
   top: 0;
   left: 0;
-
   width: var(--sidebar-width);
   height: 100vh;
-
   display: flex;
   flex-direction: column;
-
   background: var(--sidebar-bg);
-
   border-right: 1px solid var(--sidebar-border);
-
   box-sizing: border-box;
-
   z-index: 200;
-
-  transition:
-    width var(--sidebar-transition);
-
+  transition: width var(--sidebar-transition);
   overflow: hidden;
 }
 
@@ -57,56 +40,37 @@
 }
 
 
-/* =========================
-   LOGO
-   ========================= */
-
+/* Logo */
 .sidebar-logo {
   height: 72px;
-
   display: flex;
   align-items: center;
-
   gap: 10px;
-
   padding: 0 20px;
-
   border-bottom: 1px solid var(--sidebar-border);
-
   box-sizing: border-box;
-
   flex-shrink: 0;
 }
 
 .sidebar-logo-icon {
   width: 34px;
   height: 34px;
-
   flex-shrink: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 8px;
-
   background: #2563eb;
-
   color: #ffffff;
-
   font-size: 20px;
   font-weight: 700;
-
-  box-shadow:
-    0 3px 8px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.25);
 }
 
 .sidebar-logo-text {
   font-size: 21px;
   font-weight: 700;
-
   color: #1e293b;
-
   white-space: nowrap;
 }
 
@@ -116,7 +80,6 @@
 
 .sidebar--collapsed .sidebar-logo {
   justify-content: center;
-
   padding: 0;
 }
 
@@ -125,44 +88,27 @@
 }
 
 
-/* =========================
-   TOGGLE BUTTON
-   ========================= */
-
+/* Toggle button */
 .sidebar-toggle {
   position: absolute;
-
   top: 26px;
   right: -14px;
-
   width: 28px;
   height: 28px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 0;
-
   border: 1px solid #334155;
   border-radius: 50%;
-
   background: #1e293b;
-
   color: #cbd5e1;
-
   font-size: 16px;
   font-weight: 600;
-
   line-height: 1;
-
   cursor: pointer;
-
   z-index: 500;
-
-  box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.18);
-
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
   transition:
     background 0.15s ease,
     color 0.15s ease,
@@ -171,9 +117,7 @@
 
 .sidebar-toggle:hover {
   background: #2563eb;
-
   color: #ffffff;
-
   transform: scale(1.05);
 }
 
@@ -182,49 +126,31 @@
 }
 
 
-/* =========================
-   NAVIGATION
-   ========================= */
-
+/* Navigation */
 .sidebar-nav {
   padding: 20px 10px 8px;
-
   display: flex;
   flex-direction: column;
-
   gap: 4px;
-
   flex-shrink: 0;
 }
 
 .sidebar-nav-item {
   width: 100%;
   height: 44px;
-
   display: flex;
   align-items: center;
-
   gap: 12px;
-
   padding: 0 14px;
-
   border: none;
-
   border-radius: 9px;
-
   background: transparent;
-
   color: var(--sidebar-text);
-
   font-size: 14px;
   font-weight: 500;
-
   text-align: left;
-
   cursor: pointer;
-
   white-space: nowrap;
-
   transition:
     background 0.15s ease,
     color 0.15s ease;
@@ -232,39 +158,27 @@
 
 .sidebar-nav-item:hover {
   background: var(--sidebar-hover-bg);
-
   color: var(--sidebar-text-dark);
 }
 
 .sidebar-nav-item--active {
   background: var(--sidebar-active-bg);
-
   color: var(--sidebar-active-text);
-
   font-weight: 600;
 }
 
 
-/* =========================
-   NAVIGATION ICON
-   ========================= */
-
+/* Navigation icon */
 .sidebar-nav-icon {
   width: 22px;
   height: 22px;
-
   flex-shrink: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   color: #475569;
-
   font-size: 17px;
-
-  transition:
-    color 0.15s ease;
+  transition: color 0.15s ease;
 }
 
 .sidebar-nav-item:hover .sidebar-nav-icon {
@@ -275,18 +189,11 @@
   color: #2563eb;
 }
 
-
-/* =========================
-   NAVIGATION LABEL
-   ========================= */
-
+/* Navigation label */
 .sidebar-nav-label {
   min-width: 0;
-
   white-space: nowrap;
-
   overflow: hidden;
-
   text-overflow: ellipsis;
 }
 
@@ -294,14 +201,9 @@
   display: none;
 }
 
-
-/* =========================
-   PROJECTS
-   ========================= */
-
+/* Projects */
 .sidebar-projects {
   padding: 12px 14px 10px;
-
   flex-shrink: 0;
 }
 
@@ -309,11 +211,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding: 0 5px 8px;
-
   color: #64748b;
-
   font-size: 14px;
   font-weight: 600;
 }
@@ -321,25 +220,16 @@
 .sidebar-project-add {
   width: 24px;
   height: 24px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 0;
-
   border: none;
-
   border-radius: 6px;
-
   background: transparent;
-
   color: #64748b;
-
   font-size: 14px;
-
   cursor: pointer;
-
   transition:
     background 0.15s ease,
     color 0.15s ease;
@@ -347,47 +237,31 @@
 
 .sidebar-project-add:hover {
   background: #f1f5f9;
-
   color: #2563eb;
 }
 
 .sidebar-project-list {
   display: flex;
   flex-direction: column;
-
   gap: 2px;
 }
 
 .sidebar-project-item {
   width: 100%;
-
   display: flex;
   align-items: center;
-
   gap: 9px;
-
   padding: 7px 5px;
-
   border: none;
-
   border-radius: 7px;
-
   background: transparent;
-
   color: #475569;
-
   font-size: 13px;
-
   text-align: left;
-
   cursor: pointer;
-
   white-space: nowrap;
-
   overflow: hidden;
-
-  transition:
-    background 0.15s ease;
+  transition: background 0.15s ease;
 }
 
 .sidebar-project-item:hover {
@@ -397,17 +271,13 @@
 .sidebar-project-dot {
   width: 10px;
   height: 10px;
-
   flex-shrink: 0;
-
   border-radius: 50%;
 }
 
 .sidebar-project-name {
   flex: 1;
-
   overflow: hidden;
-
   text-overflow: ellipsis;
 }
 
@@ -415,64 +285,44 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   flex-shrink: 0;
-
   color: #e11d48;
-
   font-size: 12px;
 }
 
 
-/* =========================
-   PROGRESS
-   ========================= */
-
+/* Progress */
 .sidebar-progress {
   margin: 8px 14px 12px;
-
   padding: 14px;
-
   border: 1px solid #cbd5e1;
-
   border-radius: 12px;
-
   background: #ffffff;
-
   flex-shrink: 0;
 }
 
 .sidebar-progress h3 {
   margin: 0 0 12px;
-
   color: #64748b;
-
   font-size: 14px;
-
   font-weight: 500;
 }
 
 .sidebar-progress-summary {
   display: flex;
   align-items: center;
-
   gap: 12px;
-
   margin-bottom: 12px;
 }
 
 .progress-circle {
   width: 52px;
   height: 52px;
-
   position: relative;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 50%;
-
   background:
     conic-gradient(
       #334155 0deg 180deg,
@@ -482,26 +332,18 @@
 
 .progress-circle::after {
   content: "";
-
   position: absolute;
-
   width: 40px;
   height: 40px;
-
   border-radius: 50%;
-
   background: #ffffff;
 }
 
 .progress-circle span {
   position: relative;
-
   z-index: 1;
-
   font-size: 11px;
-
   font-weight: 600;
-
   color: #475569;
 }
 
@@ -512,13 +354,11 @@
 
 .progress-complete strong {
   color: #334155;
-
   font-size: 13px;
 }
 
 .progress-complete span {
   color: #64748b;
-
   font-size: 11px;
 }
 
@@ -526,18 +366,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   margin-top: 7px;
-
   color: #64748b;
-
   font-size: 11px;
 }
 
 .progress-row span {
   display: flex;
   align-items: center;
-
   gap: 6px;
 }
 
@@ -548,9 +384,7 @@
 .progress-dot {
   width: 7px;
   height: 7px;
-
   display: inline-block;
-
   border-radius: 50%;
 }
 
@@ -569,21 +403,13 @@
 .progress-report-button {
   width: 100%;
   height: 32px;
-
   margin-top: 12px;
-
   border: 1px solid #94a3b8;
-
   border-radius: 8px;
-
   background: #f8fafc;
-
   color: #64748b;
-
   font-size: 11px;
-
   cursor: pointer;
-
   transition:
     background 0.15s ease,
     border-color 0.15s ease;
@@ -591,88 +417,61 @@
 
 .progress-report-button:hover {
   background: #f1f5f9;
-
   border-color: #64748b;
 }
 
 
-/* =========================
-   FOOTER / USER
-   ========================= */
-
+/* Footer / user */
 .sidebar-footer {
   margin-top: auto;
-
   padding: 12px 14px;
-
   border-top: 1px solid var(--sidebar-border);
-
   flex-shrink: 0;
 }
 
 .sidebar-user {
   display: flex;
   align-items: center;
-
   gap: 10px;
-
   padding: 8px;
-
   border: 1px solid #cbd5e1;
-
   border-radius: 10px;
-
   background: #ffffff;
-
   box-sizing: border-box;
 }
 
 .sidebar-avatar {
   width: 38px;
   height: 38px;
-
   flex-shrink: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 50%;
-
   background: #dbeafe;
-
   color: #1e3a8a;
-
   font-size: 12px;
   font-weight: 700;
 }
 
 .sidebar-user-info {
   min-width: 0;
-
   display: flex;
   flex-direction: column;
 }
 
 .sidebar-user-name {
   color: #334155;
-
   font-size: 13px;
-
   font-weight: 700;
-
   white-space: nowrap;
 }
 
 .sidebar-user-email {
   color: #64748b;
-
   font-size: 10px;
-
   white-space: nowrap;
-
   overflow: hidden;
-
   text-overflow: ellipsis;
 }
 
@@ -682,9 +481,7 @@
 
 .sidebar--collapsed .sidebar-user {
   justify-content: center;
-
   padding: 6px;
-
   border: none;
 }
 
@@ -693,10 +490,7 @@
 }
 
 
-/* =========================
-   RESPONSIVE
-   ========================= */
-
+/* Responsive */
 @media (max-width: 900px) {
   .sidebar {
     width: var(--sidebar-collapsed-width);
@@ -704,7 +498,6 @@
 
   .sidebar-logo {
     justify-content: center;
-
     padding: 0;
   }
 
@@ -718,7 +511,6 @@
 
   .sidebar-nav-item {
     justify-content: center;
-
     padding: 0;
   }
 
@@ -728,9 +520,7 @@
 
   .sidebar-user {
     justify-content: center;
-
     border: none;
-
     padding: 6px;
   }
 }

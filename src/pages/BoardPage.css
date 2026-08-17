@@ -1,13 +1,8 @@
-/* =========================
-   BOARD PAGE
-   ========================= */
-
+/* Board page */
 .board-page {
   --current-sidebar-width: 260px;
-
   width: 100%;
   min-height: 100vh;
-
   background: #f8fafc;
 }
 
@@ -16,65 +11,43 @@
   --current-sidebar-width: 68px;
 }
 
-/* =========================
-   CONTENT
-   ========================= */
-
+/* Content */
 .board-page-content {
   width: calc(100% - var(--current-sidebar-width));
-
   min-height: 100vh;
-
   margin-left: var(--current-sidebar-width);
-
   box-sizing: border-box;
-
   transition:
     width 0.22s ease,
     margin-left 0.22s ease;
-
   overflow-x: hidden;
 }
 
-/* =========================
-   HEADER
-   ========================= */
-
+/* Header */
 .board-page-header {
   width: 100%;
   min-height: 62px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   gap: 24px;
-
   padding: 0 32px;
-
   box-sizing: border-box;
-
   background: #ffffff;
-
   border-bottom: 1px solid #e2e8f0;
 }
 
 /* Header left */
-
 .board-page-header-left {
   min-width: 0;
-
   display: flex;
   align-items: center;
-
   flex: 1;
 }
 
 .board-page-header-left h1 {
   margin: 0;
-
   color: #1e293b;
-
   font-size: 24px;
   font-weight: 700;
 }
@@ -83,56 +56,36 @@
   display: none;
 }
 
-/* =========================
-   HEADER RIGHT
-   ========================= */
-
+/* Header right */
 .board-page-header-right {
   display: flex;
   align-items: center;
-
   gap: 10px;
-
   flex-shrink: 0;
-
   min-width: 0;
 }
 
-/* =========================
-   SEARCH BAR
-   ========================= */
-
+/* Search bar */
 .board-page-header-right .search-bar {
   position: relative;
-
   width: 380px;
   height: 40px;
-
   margin: 0;
-
   flex-shrink: 1;
 }
 
 .board-page-header-right .search-bar input {
   width: 100%;
   height: 40px;
-
   box-sizing: border-box;
-
   padding: 0 38px 0 38px;
-
   border: 1px solid #dbe3ee;
   border-radius: 9px;
-
   background: #f8fafc;
-
   color: #1e293b;
-
   outline: none;
-
   font-family: inherit;
   font-size: 13px;
-
   transition:
     border-color 0.2s ease,
     background-color 0.2s ease,
@@ -150,47 +103,32 @@
 
 .board-page-header-right .search-bar input:focus {
   background: #ffffff;
-
   border-color: #2563eb;
-
-  box-shadow:
-    0 0 0 3px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 /* Search icon */
-
 .board-page-header-right .search-bar .search-icon {
   position: absolute !important;
-
   left: 12px !important;
   top: 50% !important;
-
   width: 18px !important;
   height: 18px !important;
-
   display: flex !important;
-
   align-items: center;
   justify-content: center;
-
   transform: translateY(-50%) !important;
-
   color: #64748b !important;
-
   opacity: 1 !important;
   visibility: visible !important;
-
   pointer-events: none;
-
   z-index: 5;
 }
 
 .board-page-header-right .search-bar .search-icon svg {
   display: block !important;
-
   width: 17px;
   height: 17px;
-
   color: currentColor;
 }
 
@@ -198,32 +136,21 @@
 
 .board-page-header-right .search-bar .clear-search {
   position: absolute;
-
   right: 7px;
   top: 50%;
-
   transform: translateY(-50%);
-
   width: 26px;
   height: 26px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 0;
-
   border: none;
   border-radius: 50%;
-
   background: transparent;
-
   color: #94a3b8;
-
   font-size: 16px;
-
   cursor: pointer;
-
   transition:
     background-color 0.15s ease,
     color 0.15s ease;
@@ -234,40 +161,28 @@
   color: #475569;
 }
 
-/* =========================
-   HEADER ICONS
-   ========================= */
+/* Header icons */
 
 .board-page-header-icons {
   display: flex;
   align-items: center;
-
   gap: 2px;
-
   flex-shrink: 0;
 }
 
 .board-header-icon-btn {
   position: relative;
-
   width: 36px;
   height: 36px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 0;
-
   border: none;
   border-radius: 8px;
-
   background: transparent;
-
   color: #64748b;
-
   cursor: pointer;
-
   transition:
     background-color 0.18s ease,
     color 0.18s ease,
@@ -276,7 +191,6 @@
 
 .board-header-icon-btn:hover {
   background: #f1f5f9;
-
   color: #2563eb;
 }
 
@@ -286,10 +200,8 @@
 
 .board-header-icon-btn svg {
   display: block;
-
   width: 18px;
   height: 18px;
-
   pointer-events: none;
 }
 
@@ -297,50 +209,31 @@
 
 .notification-dot {
   position: absolute;
-
   top: 7px;
   right: 7px;
-
   width: 6px;
   height: 6px;
-
   border-radius: 50%;
-
   background: #ef4444;
-
   border: 1.5px solid #ffffff;
 }
 
-/* =========================
-   ADD BUTTON
-   ========================= */
-
+/* Add button */
 .board-page-add-btn {
   height: 40px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 0 18px;
-
   border: none;
   border-radius: 8px;
-
   background: #2563eb;
-
   color: white;
-
   font-size: 13px;
   font-weight: 600;
-
   cursor: pointer;
-
   white-space: nowrap;
-
-  box-shadow:
-    0 3px 8px rgba(37, 99, 235, 0.2);
-
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.2);
   transition:
     background 0.18s ease,
     transform 0.15s ease,
@@ -349,54 +242,37 @@
 
 .board-page-add-btn:hover {
   background: #1d4ed8;
-
   transform: translateY(-1px);
-
-  box-shadow:
-    0 5px 12px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 5px 12px rgba(37, 99, 235, 0.25);
 }
 
 .board-page-add-btn:active {
   transform: translateY(0);
 }
 
-/* =========================
-   AVATAR
-   ========================= */
-
+/* Avatar */
 .board-page-avatar {
   width: 40px;
   height: 40px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   flex-shrink: 0;
-
   border-radius: 50%;
-
   background: linear-gradient(
     135deg,
     #2563eb,
     #7c3aed
   );
-
   color: white;
-
   font-size: 12px;
   font-weight: 700;
 }
 
-/* =========================
-   MAIN
-   ========================= */
-
+/* Main */
 .board-page-main {
   width: 100%;
-
   padding: 26px 32px 40px;
-
   box-sizing: border-box;
 }
 
@@ -405,40 +281,28 @@
   min-width: 0;
 }
 
-/* =========================
-   PROJECT SELECTOR
-   ========================= */
-
+/* Project selector */
 .board-project-selector {
   position: relative;
-
   width: 160px;
   height: 40px;
-
   flex-shrink: 0;
 }
 
 .board-project-select {
   width: 100%;
   height: 40px;
-
   padding: 0 24px 0 12px;
-
   border: 1px solid #dbe3ee;
   border-radius: 8px;
-
   background: #ffffff;
   color: #334155;
-
   font-family: inherit;
   font-size: 12px;
   font-weight: 500;
-
   cursor: pointer;
   outline: none;
-
   appearance: auto;
-
   transition:
     border-color 0.18s ease,
     box-shadow 0.18s ease,
@@ -452,10 +316,7 @@
 
 .board-project-select:focus {
   border-color: #2563eb;
-
-  box-shadow:
-    0 0 0 3px rgba(37, 99, 235, 0.1);
-
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
   background: #ffffff;
 }
 
@@ -464,9 +325,7 @@
   background: #ffffff;
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+/* Responsive */
 
 @media (max-width: 1200px) {
   .board-page-header {
@@ -497,15 +356,12 @@
 @media (max-width: 900px) {
   .board-page-content {
     width: calc(100% - 68px);
-
     margin-left: 68px;
   }
 
   .board-page-header {
     flex-wrap: wrap;
-
     min-height: auto;
-
     padding-top: 12px;
     padding-bottom: 12px;
   }
@@ -516,7 +372,6 @@
 
   .board-page-header-right {
     flex: 1;
-
     justify-content: flex-end;
   }
 }

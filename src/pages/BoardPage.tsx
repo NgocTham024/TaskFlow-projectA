@@ -14,9 +14,7 @@ export default function BoardPage() {
 
       <div className="board-page-content">
 
-        {/* =========================
-            HEADER
-           ========================= */}
+        {/* Header */}
         <header className="board-page-header">
 
           {/* Board title */}
@@ -181,9 +179,7 @@ export default function BoardPage() {
           </div>
         </header>
 
-        {/* =========================
-            MAIN BOARD
-           ========================= */}
+        {/* Main board */}
         <main className="board-page-main">
           <Board
             searchQuery={searchQuery}
