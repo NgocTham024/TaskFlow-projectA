@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import {
   faHouse,
   faSquareCheck,
@@ -74,204 +72,161 @@ const PROJECTS = [
 interface SidebarProps {
   activeKey?: string;
   onNavigate?: (key: string) => void;
-  onCollapsedChange?: (collapsed: boolean) => void;
 }
 
 export default function Sidebar({
   activeKey = "board",
   onNavigate,
-  onCollapsedChange,
 }: SidebarProps) {
-  const [collapsed, setCollapsed] = useState(false);
-
-  const toggleSidebar = () => {
-    setCollapsed((current) => {
-      const next = !current;
-
-      onCollapsedChange?.(next);
-
-      return next;
-    });
-  };
-
   return (
-    <aside
-      className={`sidebar ${
-        collapsed ? "sidebar--collapsed" : ""
-      }`}
-    >
-      {/* Logo */}
+    <aside className="sidebar">
 
+      {/* Logo */}
       <div className="sidebar-logo">
         <div className="sidebar-logo-icon">
           <span>✓</span>
         </div>
 
-        {!collapsed && (
-          <span className="sidebar-logo-text">
-            Task<span>Flow</span>
-          </span>
-        )}
+        <span className="sidebar-logo-text">
+          Task<span>Flow</span>
+        </span>
       </div>
 
-      {/* Toggle button */}
+      {/* Navigation */}
+      <nav className="sidebar-nav">
+        {NAV_ITEMS.map((item) => (
+          <button
+            key={item.key}
+            type="button"
+            className={`sidebar-nav-item ${
+              activeKey === item.key
+                ? "sidebar-nav-item--active"
+                : ""
+            }`}
+            onClick={() => onNavigate?.(item.key)}
+          >
+            <span className="sidebar-nav-icon">
+              <FontAwesomeIcon icon={item.icon} />
+            </span>
 
-      <button
-        className="sidebar-toggle"
-        onClick={toggleSidebar}
-        title={collapsed ? "Mở rộng" : "Thu gọn"}
-        type="button"
-      >
-        {collapsed ? "›" : "‹"}
-      </button>
+            <span className="sidebar-nav-label">
+              {item.label}
+            </span>
+          </button>
+        ))}
+      </nav>
 
-      {!collapsed && (
-        <>
-          {/* Navigation */}
+      {/* Projects */}
+      <div className="sidebar-projects">
+        <div className="sidebar-section-title">
+          <span>Dự án</span>
 
-          <nav className="sidebar-nav">
-            {NAV_ITEMS.map((item) => (
-              <button
-                key={item.key}
-                type="button"
-                className={`sidebar-nav-item ${
-                  activeKey === item.key
-                    ? "sidebar-nav-item--active"
-                    : ""
-                }`}
-                onClick={() => onNavigate?.(item.key)}
-              >
-                <span className="sidebar-nav-icon">
-                  <FontAwesomeIcon icon={item.icon} />
-                </span>
+          <button
+            type="button"
+            className="sidebar-project-add"
+            title="Thêm dự án"
+          >
+            <FontAwesomeIcon icon={faPlus} />
+          </button>
+        </div>
 
-                <span className="sidebar-nav-label">
-                  {item.label}
-                </span>
-              </button>
-            ))}
-          </nav>
-
-          {/* Projects */}
-
-          <div className="sidebar-projects">
-            <div className="sidebar-section-title">
-              <span>Dự án</span>
-
-              <button
-                type="button"
-                className="sidebar-project-add"
-                title="Thêm dự án"
-              >
-                <FontAwesomeIcon icon={faPlus} />
-              </button>
-            </div>
-
-            <div className="sidebar-project-list">
-              {PROJECTS.map((project) => (
-                <button
-                  key={project.name}
-                  type="button"
-                  className="sidebar-project-item"
-                >
-                  <span
-                    className="sidebar-project-dot"
-                    style={{
-                      backgroundColor:
-                        project.color,
-                    }}
-                  />
-
-                  <span className="sidebar-project-name">
-                    {project.name}
-                  </span>
-
-                  {project.pinned && (
-                    <span className="sidebar-project-pin">
-                      <FontAwesomeIcon
-                        icon={faThumbtack}
-                      />
-                    </span>
-                  )}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Progress */}
-
-          <div className="sidebar-progress">
-            <h3>Tiến độ tổng thể</h3>
-
-            <div className="sidebar-progress-summary">
-              <div className="progress-circle">
-                <span>50%</span>
-              </div>
-
-              <div className="progress-complete">
-                <strong>50%</strong>
-                <span>Hoàn thành</span>
-              </div>
-            </div>
-
-            <div className="progress-row">
-              <span>
-                <i className="progress-dot done" />
-                Đã xong
-              </span>
-
-              <strong>35</strong>
-            </div>
-
-            <div className="progress-row">
-              <span>
-                <i className="progress-dot doing" />
-                Đang làm
-              </span>
-
-              <strong>10</strong>
-            </div>
-
-            <div className="progress-row">
-              <span>
-                <i className="progress-dot todo" />
-                Chưa bắt đầu
-              </span>
-
-              <strong>15</strong>
-            </div>
-
+        <div className="sidebar-project-list">
+          {PROJECTS.map((project) => (
             <button
+              key={project.name}
               type="button"
-              className="progress-report-button"
+              className="sidebar-project-item"
             >
-              Xem báo cáo chi tiết
+              <span
+                className="sidebar-project-dot"
+                style={{
+                  backgroundColor: project.color,
+                }}
+              />
+
+              <span className="sidebar-project-name">
+                {project.name}
+              </span>
+
+              {project.pinned && (
+                <span className="sidebar-project-pin">
+                  <FontAwesomeIcon icon={faThumbtack} />
+                </span>
+              )}
             </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Progress */}
+      <div className="sidebar-progress">
+        <h3>Tiến độ tổng thể</h3>
+
+        <div className="sidebar-progress-summary">
+          <div className="progress-circle">
+            <span>50%</span>
           </div>
-        </>
-      )}
+
+          <div className="progress-complete">
+            <strong>50%</strong>
+            <span>Hoàn thành</span>
+          </div>
+        </div>
+
+        <div className="progress-row">
+          <span>
+            <i className="progress-dot done" />
+            Đã xong
+          </span>
+
+          <strong>35</strong>
+        </div>
+
+        <div className="progress-row">
+          <span>
+            <i className="progress-dot doing" />
+            Đang làm
+          </span>
+
+          <strong>10</strong>
+        </div>
+
+        <div className="progress-row">
+          <span>
+            <i className="progress-dot todo" />
+            Chưa bắt đầu
+          </span>
+
+          <strong>15</strong>
+        </div>
+
+        <button
+          type="button"
+          className="progress-report-button"
+        >
+          Xem báo cáo chi tiết
+        </button>
+      </div>
 
       {/* User */}
-
       <div className="sidebar-footer">
         <div className="sidebar-user">
           <div className="sidebar-avatar">
             NT
           </div>
 
-          {!collapsed && (
-            <div className="sidebar-user-info">
-              <span className="sidebar-user-name">
-                Ngọc Thắm
-              </span>
+          <div className="sidebar-user-info">
+            <span className="sidebar-user-name">
+              Ngọc Thắm
+            </span>
 
-              <span className="sidebar-user-email">
-                member@example.com
-              </span>
-            </div>
-          )}
+            <span className="sidebar-user-email">
+              member@example.com
+            </span>
+          </div>
         </div>
       </div>
+
     </aside>
   );
 }

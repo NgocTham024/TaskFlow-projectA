@@ -191,7 +191,6 @@
 }
 
 /* Responsive */
-
 @media (max-width: 1000px) {
   .app-header {
     gap: 12px;

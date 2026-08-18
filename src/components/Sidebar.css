@@ -30,9 +30,10 @@
   background: var(--sidebar-bg);
   border-right: 1px solid var(--sidebar-border);
   box-sizing: border-box;
-  z-index: 200;
+  z-index: 1000;
   transition: width var(--sidebar-transition);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .sidebar--collapsed {
