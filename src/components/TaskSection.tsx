@@ -3,17 +3,19 @@ import TaskCard, { type Task } from './TaskCard';
 import AddTask from './AddTask';
 import EditTask from './EditTask';
 import DeleteTask from './DeleteTask';
+import TaskDetail from './TaskDetail';
 import './TaskSection.css';
 
 export default function TaskSection() {
   const [tasks, setTasks] = useState<Task[]>([
-    { id: 1, title: 'Design UI', priority: 'High', status: 'To Do', assignee: 'Nguyễn Văn A', deadline: '20/08/2026' },
-    { id: 2, title: 'Create Login API', priority: 'Medium', status: 'In Progress', assignee: 'Trần Thị B', deadline: '22/08/2026' },
+    { id: 1, title: 'Design UI', priority: 'High', status: 'To Do', assignee: 'Nguyễn Văn A', deadline: '20/08/2026', description: 'Thiết kế giao diện Kanban' },
+    { id: 2, title: 'Create Login API', priority: 'Medium', status: 'In Progress', assignee: 'Trần Thị B', deadline: '22/08/2026', description: 'Tạo API đăng nhập' },
   ]);
 
   const [showAdd, setShowAdd] = useState(false);
   const [editTask, setEditTask] = useState<Task | null>(null);
   const [deleteId, setDeleteId] = useState<number | null>(null);
+  const [selectedTask, setSelectedTask] = useState<Task | null>(null);
 
   const columns = ['To Do', 'In Progress', 'Completed'];
 
@@ -34,6 +36,7 @@ export default function TaskSection() {
                   <TaskCard
                     key={t.id}
                     task={t}
+                    onSelect={() => setSelectedTask(t)}
                     onEdit={() => setEditTask(t)}
                     onDelete={() => setDeleteId(t.id)}
                     onUpdateDeadline={(dl) => setTasks(tasks.map((x) => (x.id === t.id ? { ...x, deadline: dl } : x)))}
@@ -69,6 +72,17 @@ export default function TaskSection() {
         <DeleteTask
           onClose={() => setDeleteId(null)}
           onConfirm={() => { setTasks(tasks.filter((x) => x.id !== deleteId)); setDeleteId(null); }}
+        />
+      )}
+
+      {selectedTask && (
+        <TaskDetail
+          task={selectedTask}
+          onClose={() => setSelectedTask(null)}
+          onSave={(updated) => {
+            setTasks(tasks.map((x) => (x.id === updated.id ? updated : x)));
+            setSelectedTask(updated);
+          }}
         />
       )}
     </div>
